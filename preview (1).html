@@ -1,0 +1,1626 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="description" content="2zOutsource provides lead generation, paid campaign management and conversion-focused growth solutions.">
+<title>2zOutsource | Lead Generation & Growth</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+  --bg:#0a0a0a;
+  --surface:#111416;
+  --surface2:#151a1e;
+  --blue:#007aa7;
+  --pink:#ff2d95;
+  --white:#f7f9fc;
+  --muted:#969da7;
+  --border:rgba(255,255,255,.09);
+  --max:1160px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Manrope',sans-serif;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.container{width:min(var(--max),90%);margin:auto}
+.blue{color:var(--blue)}
+.pink{color:var(--pink)}
+
+.gradient-text{
+  background:linear-gradient(100deg,#00b9e7,#007aa7 45%,#ff2d95);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.section{padding:105px 0;position:relative}
+
+.section-label{
+  color:#00b9e7;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:17px;
+}
+.section-label:before{
+  content:"";
+  width:25px;
+  height:2px;
+  background:var(--pink);
+}
+
+.section-heading{
+  font-size:clamp(30px,4vw,43px);
+  line-height:1.2;
+  letter-spacing:-1.6px;
+  font-weight:800;
+}
+.section-desc{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+  margin-top:16px;
+  max-width:580px;
+}
+
+/* BUTTONS */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:14px 23px;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:800;
+  border:1px solid transparent;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;
+}
+.btn:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,transparent 25%,#ffffff45 50%,transparent 75%);
+  transform:translateX(-120%);
+  transition:transform .7s var(--ease);
+  z-index:-1;
+}
+.btn:hover:before{transform:translateX(120%)}
+.btn-primary{background:var(--pink);color:white}
+.btn-primary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 35px #ff2d9550;
+}
+.btn-outline{border-color:var(--border);color:white}
+.btn-outline:hover{
+  border-color:var(--blue);
+  color:#20c5f2;
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px #007aa725;
+}
+
+/* NAVIGATION */
+
+.navbar{
+  height:82px;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(10,10,10,.86);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:background .3s,box-shadow .3s;
+}
+.navbar.scrolled{
+  background:rgba(8,10,12,.96);
+  box-shadow:0 10px 35px #0008;
+}
+.nav-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+.logo-mark{
+  font-size:29px;
+  font-weight:800;
+  letter-spacing:-4px;
+}
+.logo-mark span:first-child{color:#00b9e7}
+.logo-mark span:last-child{color:var(--pink)}
+
+.nav-links{
+  display:flex;
+  gap:35px;
+  align-items:center;
+}
+.nav-links a{
+  font-size:12px;
+  color:#c5c9cf;
+  font-weight:700;
+  position:relative;
+  transition:color .3s;
+}
+.nav-links a:after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-9px;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--pink));
+  transition:width .4s var(--ease);
+}
+.nav-links a:hover,
+.nav-links a.active{color:#20c5f2}
+.nav-links a:hover:after,
+.nav-links a.active:after{width:100%}
+
+.nav-toggle{
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:22px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:680px;
+  padding:155px 0 90px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 85% 40%,#007aa720,transparent 37%),
+    radial-gradient(ellipse at 15% 75%,#ff2d9510,transparent 35%);
+}
+
+.hero:before,.hero:after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(150px);
+  animation:glowMove 10s ease-in-out infinite alternate;
+}
+.hero:before{
+  width:400px;
+  height:400px;
+  background:#007aa7;
+  opacity:.13;
+  top:10%;
+  right:5%;
+}
+.hero:after{
+  width:300px;
+  height:300px;
+  background:#ff2d95;
+  opacity:.09;
+  bottom:0;
+  left:5%;
+  animation-delay:2s;
+}
+@keyframes glowMove{
+  from{transform:translate(0,0) scale(.9)}
+  to{transform:translate(-35px,35px) scale(1.2)}
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:55px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:8px 13px;
+  border:1px solid #007aa750;
+  border-radius:50px;
+  background:#007aa715;
+  font-size:10px;
+  color:#48c9ed;
+  margin-bottom:25px;
+  animation:fadeUp .9s both;
+}
+.dot{
+  width:7px;
+  height:7px;
+  background:var(--pink);
+  border-radius:50%;
+  box-shadow:0 0 12px var(--pink);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  50%{box-shadow:0 0 20px 5px #ff2d9550}
+}
+
+.hero h1{
+  font-size:clamp(43px,5.5vw,69px);
+  line-height:1.08;
+  letter-spacing:-3px;
+  font-weight:800;
+  animation:fadeUp 1s .1s both;
+}
+.hero-desc{
+  font-size:14px;
+  color:#a4aab4;
+  line-height:1.9;
+  margin:24px 0 29px;
+  max-width:520px;
+  animation:fadeUp 1s .2s both;
+}
+.hero-actions{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+  animation:fadeUp 1s .3s both;
+}
+.hero-points{
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-top:36px;
+  animation:fadeUp 1s .4s both;
+}
+.hero-points span{
+  font-size:10px;
+  color:#aab1bc;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.hero-points i{color:var(--blue)}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(35px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* HERO DASHBOARD */
+
+.hero-visual{
+  position:relative;
+  min-height:390px;
+  display:grid;
+  place-items:center;
+}
+.orbit{
+  position:absolute;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  border:1px solid #007aa735;
+  box-shadow:0 0 80px #007aa71b;
+  animation:orbitPulse 7s ease-in-out infinite;
+}
+.orbit:before,.orbit:after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  border:1px solid #ff2d9530;
+}
+.orbit:before{inset:30px}
+.orbit:after{inset:65px}
+@keyframes orbitPulse{
+  50%{transform:scale(1.05);opacity:.5}
+}
+
+.dashboard{
+  width:100%;
+  max-width:420px;
+  position:relative;
+  z-index:2;
+  padding:26px;
+  border:1px solid #007aa75c;
+  border-radius:18px;
+  background:linear-gradient(140deg,#151d24,#0c1016);
+  box-shadow:0 25px 100px #000,0 0 45px #007aa71a;
+  animation:dashboardFloat 6s ease-in-out infinite;
+  transition:box-shadow .5s,border-color .5s;
+}
+.dashboard:hover{
+  border-color:#ff2d9580;
+  box-shadow:0 30px 100px #000,0 0 60px #ff2d9520;
+}
+@keyframes dashboardFloat{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-15px) rotate(-1deg)}
+}
+.dash-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:10px;
+  color:#aab4c1;
+}
+.dash-logo{font-size:16px;font-weight:800;color:white}
+.dash-title{
+  font-size:27px;
+  font-weight:800;
+  line-height:1.35;
+  margin:30px 0 20px;
+}
+.chart{
+  height:120px;
+  display:flex;
+  align-items:end;
+  gap:12px;
+  border-bottom:1px solid var(--border);
+  padding:0 10px;
+}
+.chart span{
+  flex:1;
+  border-radius:5px 5px 0 0;
+  background:linear-gradient(to top,#007aa7,#00b9e7);
+  transform-origin:bottom;
+  animation:chartGrow 1.5s var(--ease) both;
+}
+.chart span:nth-child(2n){
+  background:linear-gradient(to top,#b91669,#ff2d95);
+}
+.chart span:nth-child(2){animation-delay:.1s}
+.chart span:nth-child(3){animation-delay:.2s}
+.chart span:nth-child(4){animation-delay:.3s}
+.chart span:nth-child(5){animation-delay:.4s}
+.chart span:nth-child(6){animation-delay:.5s}
+.chart span:nth-child(7){animation-delay:.6s}
+.chart span:nth-child(8){animation-delay:.7s}
+
+@keyframes chartGrow{
+  from{transform:scaleY(0);opacity:.2}
+  to{transform:scaleY(1);opacity:1}
+}
+.dash-bottom{
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+  font-size:11px;
+  color:#a8b1be;
+}
+.dash-bottom strong{
+  display:block;
+  font-size:17px;
+  color:white;
+  margin-top:5px;
+}
+.float-card{
+  position:absolute;
+  z-index:3;
+  background:#131a20;
+  border:1px solid var(--border);
+  padding:15px 18px;
+  border-radius:12px;
+  font-size:11px;
+  box-shadow:0 15px 45px #000;
+}
+.float-card i{color:var(--pink);margin-right:7px}
+.float-one{
+  top:35px;
+  right:-10px;
+  animation:floatOne 5s ease-in-out infinite;
+}
+.float-two{
+  bottom:28px;
+  left:-15px;
+  animation:floatTwo 6s ease-in-out infinite;
+}
+@keyframes floatOne{
+  50%{transform:translateY(-12px)}
+}
+@keyframes floatTwo{
+  50%{transform:translateY(12px)}
+}
+
+/* GROWTH */
+
+.growth{
+  background:#0d1115;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.growth-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.check-list{
+  list-style:none;
+  margin-top:25px;
+  display:grid;
+  gap:20px;
+}
+.check-list li{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  font-size:13px;
+  color:#c2c9d2;
+  line-height:1.7;
+}
+.check-list i{color:var(--blue);margin-top:4px}
+.growth-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+.stat{
+  padding:27px 20px;
+  background:#11171c;
+  border:1px solid var(--border);
+  border-radius:12px;
+  transition:transform .4s var(--ease),border-color .4s,background .4s;
+}
+.stat:hover{
+  transform:translateY(-7px);
+  border-color:#007aa780;
+  background:#151c22;
+}
+.stat strong{
+  font-size:26px;
+  display:block;
+  margin-bottom:8px;
+}
+.stat span{font-size:11px;color:var(--muted)}
+
+/* SERVICES */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:19px;
+  margin-top:50px;
+}
+.service-card{
+  padding:30px 26px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:linear-gradient(140deg,#13191e,#0d1013);
+  position:relative;
+  overflow:hidden;
+  transform-style:preserve-3d;
+  transition:
+    transform .4s var(--ease),
+    border-color .4s,
+    box-shadow .5s;
+}
+.service-card:before{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  top:-100px;
+  left:-100px;
+  border-radius:50%;
+  background:radial-gradient(circle,#007aa730,transparent 70%);
+  opacity:0;
+  transition:opacity .5s;
+  pointer-events:none;
+}
+.service-card:hover{
+  transform:translateY(-9px);
+  border-color:#007aa7a0;
+  box-shadow:0 20px 55px #007aa71b;
+}
+.service-card:hover:before{opacity:1}
+
+.service-icon{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  color:#15b9e5;
+  background:#007aa722;
+  font-size:19px;
+  margin-bottom:25px;
+  transition:transform .5s var(--ease),box-shadow .4s;
+}
+.service-card:nth-child(2n) .service-icon{
+  color:var(--pink);
+  background:#ff2d951a;
+}
+.service-card:hover .service-icon{
+  transform:translateY(-4px) rotate(-7deg) scale(1.1);
+  box-shadow:0 0 25px #007aa735;
+}
+.service-card h3{font-size:17px;margin-bottom:13px}
+.service-card p{font-size:12px;color:var(--muted);line-height:1.9}
+.service-link{
+  display:inline-flex;
+  gap:8px;
+  margin-top:22px;
+  color:var(--blue);
+  font-size:12px;
+}
+.service-link i{transition:transform .35s}
+.service-card:hover .service-link i{transform:translateX(6px)}
+
+/* REVIEWS */
+
+.reviews{
+  background:#0d1115;
+  border-top:1px solid var(--border);
+}
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:45px;
+}
+.review-card{
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#11171c;
+  transition:transform .5s var(--ease),border-color .4s,box-shadow .4s;
+}
+.review-card:hover{
+  transform:translateY(-7px);
+  border-color:#ff2d9570;
+  box-shadow:0 15px 40px #ff2d9510;
+}
+.stars{
+  color:var(--pink);
+  font-size:12px;
+  letter-spacing:3px;
+  margin-bottom:20px;
+}
+.review-card blockquote{
+  font-size:13px;
+  color:#c2c9d2;
+  line-height:1.9;
+  min-height:115px;
+}
+.reviewer{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-top:22px;
+}
+.avatar{
+  width:39px;
+  height:39px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#007aa730;
+  color:#25c7ee;
+  font-weight:800;
+  transition:transform .4s,background .4s;
+}
+.review-card:hover .avatar{
+  transform:scale(1.1);
+  background:#ff2d9530;
+}
+.reviewer strong{font-size:11px;display:block}
+.reviewer span{font-size:10px;color:var(--muted)}
+
+/* FAQ */
+
+.faq-layout{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:80px;
+}
+.faq-list{display:grid;gap:11px}
+.faq-item{
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#111619;
+  overflow:hidden;
+  transition:border-color .35s;
+}
+.faq-item:hover{border-color:#007aa770}
+.faq-question{
+  width:100%;
+  background:none;
+  border:0;
+  color:white;
+  padding:21px 22px;
+  text-align:left;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:700;
+  transition:color .3s;
+}
+.faq-question:hover{color:#29bde8}
+.faq-question i{
+  color:var(--blue);
+  transition:transform .4s var(--ease),color .3s;
+}
+.faq-answer{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .4s var(--ease);
+}
+.faq-answer-inner{overflow:hidden}
+.faq-answer p{
+  padding:0 22px 20px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+}
+.faq-item.open .faq-answer{grid-template-rows:1fr}
+.faq-item.open .faq-question i{
+  transform:rotate(45deg);
+  color:var(--pink);
+}
+
+/* CONTACT */
+
+.contact{
+  background:
+    radial-gradient(ellipse at 80% 50%,#007aa71c,transparent 45%),
+    #0d1115;
+  border-top:1px solid var(--border);
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:70px;
+  align-items:start;
+}
+.contact-info{
+  margin-top:30px;
+  display:grid;
+  gap:22px;
+}
+.contact-info div{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.contact-info i{color:var(--blue);font-size:17px}
+.contact-info span{font-size:12px;color:#c5cbd3}
+.contact-form{
+  padding:35px;
+  background:#11171c;
+  border:1px solid var(--border);
+  border-radius:16px;
+  transition:border-color .4s,box-shadow .4s;
+}
+.contact-form:hover{
+  border-color:#007aa750;
+  box-shadow:0 15px 50px #007aa710;
+}
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+.field{margin-bottom:18px}
+.field label{
+  display:block;
+  font-size:11px;
+  color:#c4cbd3;
+  margin-bottom:9px;
+}
+.field input,.field textarea{
+  width:100%;
+  padding:14px 15px;
+  background:#0b0f12;
+  border:1px solid var(--border);
+  border-radius:8px;
+  color:white;
+  outline:none;
+  font-size:12px;
+  transition:border-color .3s,box-shadow .3s,background .3s;
+}
+.field input:focus,.field textarea:focus{
+  border-color:var(--blue);
+  background:#10161b;
+  box-shadow:0 0 25px #007aa71a;
+}
+.field textarea{min-height:130px;resize:vertical}
+.contact-form .btn{width:100%}
+
+/* FOOTER */
+
+footer{
+  padding:35px 0;
+  background:#080a0c;
+  border-top:1px solid var(--border);
+}
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{
+  font-size:11px;
+  color:var(--muted);
+  transition:color .3s;
+}
+.footer-links a:hover{color:var(--pink)}
+.footer-bottom{
+  margin-top:27px;
+  padding-top:22px;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  color:#727b85;
+  font-size:10px;
+}
+.socials{display:flex;gap:16px}
+.socials a{transition:color .3s,transform .3s}
+.socials a:hover{
+  color:var(--pink);
+  transform:translateY(-4px);
+}
+
+/* SCROLL REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  filter:blur(5px);
+  transition:
+    opacity .9s var(--ease),
+    transform .9s var(--ease),
+    filter .9s var(--ease);
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+  filter:blur(0);
+}
+.reveal-left{
+  opacity:0;
+  transform:translateX(-40px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease);
+}
+.reveal-left.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+.reveal-right{
+  opacity:0;
+  transform:translateX(40px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease);
+}
+.reveal-right.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* BACK TO TOP */
+
+.back-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  background:var(--pink);
+  color:white;
+  border-radius:50%;
+  z-index:90;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(15px);
+  transition:opacity .4s,transform .4s,box-shadow .4s;
+}
+.back-top.show{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+.back-top:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 25px #ff2d9560;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .nav-links{gap:17px}
+  .hero-grid{gap:25px}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .growth-grid,.faq-layout,.contact-grid{gap:40px}
+  .review-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:700px){
+  .navbar{height:70px}
+  .nav-toggle{display:block}
+  .nav-cta{display:none}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#101316;
+    border-bottom:1px solid var(--border);
+    padding:25px 5%;
+    flex-direction:column;
+    align-items:stretch;
+    gap:23px;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:14px}
+  .nav-links a:after{bottom:-6px}
+  .hero{padding:125px 0 65px;min-height:auto}
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{letter-spacing:-2px}
+  .hero-visual{min-height:340px;margin-top:20px}
+  .dashboard{max-width:370px}
+  .float-one{right:0}
+  .float-two{left:0}
+  .section{padding:75px 0}
+  .growth-grid,.faq-layout,.contact-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .review-grid{grid-template-columns:1fr}
+  .growth-stats{gap:10px}
+  .form-row{grid-template-columns:1fr}
+  .contact-form{padding:23px}
+  .footer-top{align-items:flex-start;flex-direction:column}
+  .hero:before,.hero:after{opacity:.06}
+  .service-card:hover,.review-card:hover,.stat:hover{transform:translateY(-4px)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+  .reveal,.reveal-left,.reveal-right{
+    opacity:1;
+    transform:none;
+    filter:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a class="logo" href="#home">
+      <span class="logo-mark"><span>2</span><span>z</span></span>
+      <span>Outsource</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="btn btn-primary nav-cta">
+      Get Started <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="eyebrow">
+        <span class="dot"></span>
+        LEAD GENERATION & GROWTH SOLUTIONS
+      </div>
+
+      <h1>Your Growth.<br>Our <span class="gradient-text">Outsourcing.</span></h1>
+
+      <p class="hero-desc">
+        Find the right opportunities, reach the right customers, and move your
+        business forward. 2zOutsource helps businesses build stronger pipelines
+        through targeted lead generation and performance-focused solutions.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Get Started Today <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+
+      <div class="hero-points">
+        <span><i class="fa-solid fa-circle-check"></i> Quality Focused</span>
+        <span><i class="fa-solid fa-chart-line"></i> Growth Driven</span>
+        <span><i class="fa-solid fa-bolt"></i> Data Informed</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="orbit"></div>
+
+      <div class="dashboard">
+        <div class="dash-top">
+          <span class="dash-logo">
+            <span class="blue">2</span><span class="pink">z</span> Outsource
+          </span>
+          <span>GROWTH OVERVIEW &nbsp; <i class="fa-solid fa-ellipsis"></i></span>
+        </div>
+
+        <div class="dash-title">
+          More Leads.<br>
+          Higher Revenue.<br>
+          <span class="gradient-text">Real Growth.</span>
+        </div>
+
+        <div class="chart">
+          <span style="height:35%"></span>
+          <span style="height:50%"></span>
+          <span style="height:43%"></span>
+          <span style="height:65%"></span>
+          <span style="height:55%"></span>
+          <span style="height:82%"></span>
+          <span style="height:72%"></span>
+          <span style="height:100%"></span>
+        </div>
+
+        <div class="dash-bottom">
+          <div>Lead pipeline<strong class="blue">Growth focused</strong></div>
+          <div>Our approach<strong class="pink">Quality first</strong></div>
+        </div>
+      </div>
+
+      <div class="float-card float-one">
+        <i class="fa-solid fa-bullseye"></i> Targeted Prospects
+      </div>
+
+      <div class="float-card float-two">
+        <i class="fa-solid fa-arrow-trend-up"></i> Built for Growth
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GROWTH -->
+
+<section class="section growth">
+  <div class="container growth-grid">
+
+    <div class="reveal-left">
+      <div class="section-label">WHY 2ZOUTSOURCE</div>
+
+      <h2 class="section-heading">
+        Built for <span class="gradient-text">Pipeline Growth.</span>
+      </h2>
+
+      <p class="section-desc">
+        Growth starts with reaching the right audience. We focus on a structured,
+        data-informed approach that helps businesses attract prospects and improve
+        their conversion journey.
+      </p>
+
+      <ul class="check-list">
+        <li>
+          <i class="fa-solid fa-circle-check"></i>
+          <span><b>High-intent targeting</b><br>Connect with prospects who are more likely to need your solutions.</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i>
+          <span><b>Conversion-focused strategy</b><br>Improve landing pages and customer journeys to turn interest into action.</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i>
+          <span><b>Multi-channel campaigns</b><br>Use suitable advertising platforms to reach your target audience.</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i>
+          <span><b>Transparent communication</b><br>Understand the work, priorities and progress of your campaigns.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="growth-stats reveal-right">
+      <div class="stat">
+        <strong class="blue"><i class="fa-solid fa-bullseye"></i></strong>
+        <span>Targeted outreach</span>
+      </div>
+      <div class="stat">
+        <strong class="pink"><i class="fa-solid fa-filter"></i></strong>
+        <span>Lead qualification</span>
+      </div>
+      <div class="stat">
+        <strong><i class="fa-solid fa-chart-column"></i></strong>
+        <span>Performance insights</span>
+      </div>
+      <div class="stat">
+        <strong class="blue"><i class="fa-solid fa-handshake"></i></strong>
+        <span>Business-focused approach</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+  <div class="container">
+
+    <div class="reveal">
+      <div class="section-label">WHAT WE DO</div>
+      <h2 class="section-heading">
+        Our Lead Generation <span class="gradient-text">Services.</span>
+      </h2>
+      <p class="section-desc">
+        Focused solutions designed to help businesses reach qualified prospects,
+        improve campaign performance and create better conversion opportunities.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>High-Intent Lead Generation</h3>
+        <p>
+          Identify and connect with relevant prospects through targeted research,
+          audience segmentation and lead qualification.
+        </p>
+        <a href="#contact" class="service-link">
+          Discuss this service <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-rectangle-ad"></i></div>
+        <h3>Paid Campaign Management</h3>
+        <p>
+          Plan, manage and optimize advertising campaigns across Google,
+          Facebook and LinkedIn to improve campaign efficiency.
+        </p>
+        <a href="#contact" class="service-link">
+          Discuss this service <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Conversion Funnel Optimization</h3>
+        <p>
+          Improve landing pages, user journeys and conversion touchpoints
+          to help turn more visitors into potential customers.
+        </p>
+        <a href="#contact" class="service-link">
+          Discuss this service <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+
+<section class="section reviews" id="testimonials">
+  <div class="container">
+
+    <div class="reveal">
+      <div class="section-label">CLIENT EXPERIENCES</div>
+      <h2 class="section-heading">
+        Trusted Partnerships.<br>
+        <span class="gradient-text">Meaningful Growth.</span>
+      </h2>
+      <p class="section-desc">
+        A strong partnership starts with understanding business goals
+        and delivering consistent work.
+      </p>
+    </div>
+
+    <!-- Replace sample reviews with verified client testimonials -->
+
+    <div class="review-grid">
+
+      <article class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          “Client review will appear here. Add a genuine testimonial
+          describing the client's experience and the value delivered.”
+        </blockquote>
+        <div class="reviewer">
+          <div class="avatar">01</div>
+          <div><strong>Client Name</strong><span>Company / Position</span></div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          “Replace this sample with a real customer review. Explain the
+          challenge, the service provided and the actual outcome.”
+        </blockquote>
+        <div class="reviewer">
+          <div class="avatar">02</div>
+          <div><strong>Client Name</strong><span>Company / Position</span></div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          “Use authentic feedback from a customer who has worked with 2zOutsource.”
+        </blockquote>
+        <div class="reviewer">
+          <div class="avatar">03</div>
+          <div><strong>Client Name</strong><span>Company / Position</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="section" id="faq">
+  <div class="container faq-layout">
+
+    <div class="reveal-left">
+      <div class="section-label">NEED TO KNOW</div>
+      <h2 class="section-heading">
+        Frequently Asked <span class="pink">Questions.</span>
+      </h2>
+      <p class="section-desc">
+        Find answers to common questions about our services,
+        approach and working process.
+      </p>
+      <a href="#contact" class="btn btn-outline" style="margin-top:25px">
+        Still have questions? <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="faq-list reveal-right">
+
+      <div class="faq-item open">
+        <button class="faq-question">
+          What does 2zOutsource do?
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              2zOutsource provides lead generation, paid campaign management
+              and conversion funnel optimization solutions to help businesses
+              connect with potential customers and improve their growth opportunities.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How do you find qualified leads?
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              We use audience research, targeting criteria, market insights
+              and qualification processes to identify prospects that align
+              with your business and ideal customer profile.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Which industries do you work with?
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              Our approach can be adapted to different B2B and service-based
+              industries. Contact us to discuss your specific market and requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does it take to get started?
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              Timelines depend on the scope of work, target audience
+              and campaign requirements. We discuss the plan and setup before starting.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can services be customized?
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              Yes. The scope can be discussed according to your goals,
+              target market, campaign requirements and business priorities.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How can I get started with 2zOutsource?
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              Send us an inquiry through the contact form. Share your business
+              details and requirements, and our team can discuss the next steps.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+
+    <div class="reveal-left">
+      <div class="section-label">LET'S CONNECT</div>
+      <h2 class="section-heading">
+        Let's Build Something <span class="gradient-text">Great Together.</span>
+      </h2>
+      <p class="section-desc">
+        Tell us about your business and what you're looking to achieve.
+        Let's explore how 2zOutsource can support your next move.
+      </p>
+
+      <div class="contact-info">
+        <div>
+          <i class="fa-regular fa-envelope"></i>
+          <span>Contact us by email</span>
+        </div>
+        <div>
+          <i class="fa-solid fa-globe"></i>
+          <span>Working with businesses globally</span>
+        </div>
+        <div>
+          <i class="fa-regular fa-clock"></i>
+          <span>Response time to be confirmed</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form reveal-right" id="contactForm">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="company">Company Name</label>
+        <input id="company" name="company" placeholder="Your company">
+      </div>
+
+      <div class="field">
+        <label for="message">How Can We Help?</label>
+        <textarea id="message" name="message" placeholder="Tell us about your goals and requirements..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Send Inquiry <i class="fa-solid fa-arrow-right"></i>
+      </button>
+
+      <p id="formMessage" style="font-size:11px;color:#a5aeba;margin-top:13px"></p>
+
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+
+    <div class="footer-top">
+
+      <a class="logo" href="#home">
+        <span class="logo-mark"><span>2</span><span>z</span></span>
+        <span>Outsource</span>
+      </a>
+
+      <nav class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="socials">
+        <!-- Replace with official social profile URLs -->
+        <a href="#contact" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#contact" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#contact" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> 2zOutsource. All rights reserved.</span>
+      <span>Built for better business growth.</span>
+    </div>
+
+  </div>
+</footer>
+
+<a href="#home" class="back-top" id="backTop" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</a>
+
+<script>
+/* ==================================
+   MOBILE NAVIGATION
+================================== */
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const navbar = document.getElementById('navbar');
+
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+
+  navToggle.innerHTML = navLinks.classList.contains('open')
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  });
+});
+
+/* ==================================
+   SMOOTH SCROLL REVEAL
+================================== */
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12,
+  rootMargin: '0px 0px -35px 0px'
+});
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right')
+.forEach(el => revealObserver.observe(el));
+
+/* ==================================
+   STAGGERED CARD ANIMATIONS
+================================== */
+
+document.querySelectorAll('.services-grid,.review-grid,.growth-stats')
+.forEach(group => {
+  const children = group.children;
+
+  Array.from(children).forEach((child,index) => {
+    child.style.transitionDelay = `${index * 100}ms`;
+  });
+});
+
+/* ==================================
+   FAQ ACCORDION
+================================== */
+
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+
+    const item = button.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item')
+    .forEach(faq => faq.classList.remove('open'));
+
+    if (!wasOpen) {
+      item.classList.add('open');
+    }
+  });
+});
+
+/* ==================================
+   3D SERVICE CARD TILT
+================================== */
+
+const cards = document.querySelectorAll('.service-card');
+
+if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+
+  cards.forEach(card => {
+
+    card.addEventListener('mousemove', e => {
+
+      const rect = card.getBoundingClientRect();
+
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+
+      const rotateY = (x - .5) * 7;
+      const rotateX = (.5 - y) * 7;
+
+      card.style.transform =
+        `translateY(-7px) perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+
+  });
+}
+
+/* ==================================
+   SCROLL NAVIGATION
+================================== */
+
+const sections = document.querySelectorAll('main section[id]');
+const navItems = document.querySelectorAll('.nav-links a');
+const backTop = document.getElementById('backTop');
+
+let scrollTicking = false;
+
+function updateScrollUI() {
+
+  const scrollY = window.scrollY;
+  let current = 'home';
+
+  sections.forEach(section => {
+    if (scrollY >= section.offsetTop - 160) {
+      current = section.id;
+    }
+  });
+
+  navItems.forEach(link => {
+    link.classList.toggle(
+      'active',
+      link.getAttribute('href') === '#' + current
+    );
+  });
+
+  backTop.classList.toggle('show', scrollY > 500);
+  navbar.classList.toggle('scrolled', scrollY > 30);
+
+  scrollTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(updateScrollUI);
+    scrollTicking = true;
+  }
+}, {passive:true});
+
+/* ==================================
+   FOOTER YEAR
+================================== */
+
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+
+/* ==================================
+   CONTACT FORM
+================================== */
+
+// Frontend demonstration only.
+// Connect EmailJS, Formspree or a backend before publishing.
+
+document.getElementById('contactForm')
+.addEventListener('submit', event => {
+
+  event.preventDefault();
+
+  const message = document.getElementById('formMessage');
+
+  message.textContent =
+    'The form is ready. Please connect an email service to receive inquiries.';
+
+});
+
+/* ==================================
+   REDUCED MOTION SUPPORT
+================================== */
+
+if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  document.documentElement.style.scrollBehavior = 'auto';
+}
+</script>
+
+</body>
+</html>
